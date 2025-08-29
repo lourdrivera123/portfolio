@@ -31,7 +31,6 @@ export const cloudProps = {
     outlineColour: '#0000',
     maxSpeed: 0.04,
     minSpeed: 0.02,
-    // dragControl: false,
   },
 };
 
@@ -63,6 +62,13 @@ const IconCloud = React.memo(function IconCloud({ iconSlugs }) {
   useEffect(() => {
     setIsMounted(true);
     let cancelled = false;
+    
+    // Environment variable to force error state for testing
+    if (process.env.NEXT_PUBLIC_FORCE_ICONCLOUD_ERROR === 'true') {
+      console.log('IconCloud: Forcing error state for testing');
+      setHasError(true);
+      return;
+    }
     
     // Triple validation to prevent the slugs error
     if (!iconSlugs) {
@@ -160,6 +166,11 @@ const IconCloud = React.memo(function IconCloud({ iconSlugs }) {
         <div className="text-zinc-500 dark:text-zinc-400 text-center">
           <div className="mb-2">⚠️</div>
           <div className="text-sm">Skills visualization temporarily unavailable</div>
+          {process.env.NODE_ENV === 'development' && (
+            <div className="text-xs mt-2 opacity-60">
+              Set NEXT_PUBLIC_FORCE_ICONCLOUD_ERROR=true to test this state
+            </div>
+          )}
         </div>
       </div>
     );

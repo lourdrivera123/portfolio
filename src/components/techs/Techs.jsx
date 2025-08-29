@@ -1,5 +1,5 @@
 import { slugs as importedSlugs, techs } from '@/constants/skills';
-import IconCloud from '../ui/icon-cloud';
+import DynamicIconCloud from '../ui/DynamicIconCloud';
 import ErrorBoundary from '../ui/ErrorBoundary';
 import TechTag from './TechTag';
 import { motion } from "framer-motion";
@@ -51,25 +51,7 @@ const Techs = () => {
 
           <div>
             <ErrorBoundary>
-              {slugs && Array.isArray(slugs) && slugs.length > 0 ? (
-                <IconCloud iconSlugs={slugs} />
-              ) : (
-                <div 
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    width: '100%',
-                    height: '400px',
-                    paddingTop: 40,
-                  }}
-                >
-                  <div className="text-zinc-500 dark:text-zinc-400 text-center">
-                    <div className="mb-2">🛠️</div>
-                    <div className="text-sm">Skills visualization loading...</div>
-                  </div>
-                </div>
-              )}
+              <DynamicIconCloud iconSlugs={slugs} />
             </ErrorBoundary>
           </div>
         </div>
@@ -77,4 +59,5 @@ const Techs = () => {
     </section>
   );
 };
+
 export default Techs;
