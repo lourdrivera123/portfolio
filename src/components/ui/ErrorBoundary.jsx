@@ -14,11 +14,21 @@ class ErrorBoundary extends React.Component {
   componentDidCatch(error, errorInfo) {
     // Log the error for debugging
     console.error('ErrorBoundary caught an error:', error, errorInfo);
+    
+    // Call onError callback if provided
+    if (this.props.onError) {
+      this.props.onError(error, errorInfo);
+    }
   }
 
   render() {
     if (this.state.hasError) {
-      // Fallback UI for IconCloud specifically
+      // Use custom fallback if provided, otherwise use default
+      if (this.props.fallback) {
+        return this.props.fallback;
+      }
+      
+      // Default fallback UI for IconCloud specifically
       return (
         <div 
           style={{

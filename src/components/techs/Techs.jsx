@@ -1,6 +1,5 @@
 import { slugs as importedSlugs, techs } from '@/constants/skills';
-import DynamicIconCloud from '../ui/DynamicIconCloud';
-import ErrorBoundary from '../ui/ErrorBoundary';
+import HybridIconCloud from '../ui/HybridIconCloud';
 import TechTag from './TechTag';
 import { motion } from "framer-motion";
 
@@ -50,9 +49,7 @@ const Techs = () => {
           </div>
 
           <div>
-            <ErrorBoundary>
-              <DynamicIconCloud iconSlugs={slugs} />
-            </ErrorBoundary>
+            <HybridIconCloud iconSlugs={slugs} />
           </div>
         </div>
       </div>

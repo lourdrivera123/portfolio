@@ -33,3 +33,7 @@ yarn-error.log*
 
 # generated files
 /public/rss/
+/src/data/
+
+# prebuild cache (regenerated on build)
+/scripts/cache/
