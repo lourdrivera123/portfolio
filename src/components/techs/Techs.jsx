@@ -1,7 +1,14 @@
-import { slugs, techs } from '@/constants/skills';
+import { slugs as importedSlugs, techs } from '@/constants/skills';
 import IconCloud from '../ui/icon-cloud';
 import TechTag from './TechTag';
 import { motion } from "framer-motion";
+
+// Fallback slugs in case import fails
+const fallbackSlugs = [
+  'typescript', 'javascript', 'react', 'nodejs', 'nextjs'
+];
+
+const slugs = importedSlugs || fallbackSlugs;
 
 const Techs = () => {
   return (
@@ -30,7 +37,7 @@ const Techs = () => {
           </div>
 
           <div>
-            <IconCloud iconSlugs={slugs} />
+            {slugs && <IconCloud iconSlugs={slugs} />}
           </div>
         </div>
       </div>

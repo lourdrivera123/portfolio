@@ -63,11 +63,19 @@ const IconCloud = React.memo(function IconCloud({ iconSlugs }) {
     setIsMounted(true);
     let cancelled = false;
     
-    fetchSimpleIcons({ slugs: iconSlugs }).then((result) => {
-      if (!cancelled) {
-        setData(result);
-      }
-    });
+    // Only fetch if iconSlugs is defined and not empty
+    if (iconSlugs && Array.isArray(iconSlugs) && iconSlugs.length > 0) {
+      fetchSimpleIcons({ slugs: iconSlugs }).then((result) => {
+        if (!cancelled) {
+          setData(result);
+        }
+      }).catch((error) => {
+        console.error('Error fetching simple icons:', error);
+        if (!cancelled) {
+          setData(null);
+        }
+      });
+    }
 
     return () => {
       cancelled = true;
@@ -75,7 +83,7 @@ const IconCloud = React.memo(function IconCloud({ iconSlugs }) {
   }, [iconSlugs]);
 
   const renderedIcons = useMemo(() => {
-    if (!data) return null;
+    if (!data || !data.simpleIcons) return null;
 
     return Object.values(data.simpleIcons).map((icon) =>
       renderCustomIcon(icon, 'dark'),
