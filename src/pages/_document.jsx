@@ -89,6 +89,10 @@ export default function Document() {
           type="application/feed+json"
           href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
         />
+        
+        {/* Prefetch tsparticles dependencies for better performance */}
+        <link rel="preload" href="https://cdn.jsdelivr.net/npm/@tsparticles/slim@3.9.1/tsparticles.slim.min.js" as="script" />
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
       </Head>
       <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
         <Main />

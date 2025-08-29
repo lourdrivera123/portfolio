@@ -34,12 +34,19 @@ export const SparklesCore = React.memo(function SparklesCore(props) {
   useEffect(() => {
     let cancelled = false;
     
+    // Only run on client side
+    if (typeof window === 'undefined') {
+      return;
+    }
+    
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
     }).then(() => {
       if (!cancelled) {
         setInit(true);
       }
+    }).catch((error) => {
+      console.warn('Failed to initialize particles engine:', error);
     });
 
     return () => {
@@ -62,7 +69,7 @@ export const SparklesCore = React.memo(function SparklesCore(props) {
 
   return (
     <motion.div animate={controls} className={cn("opacity-0", className)}>
-      {init && (
+      {init ? (
         <Particles
           id={id || "tsparticles"}
           className={cn("h-full w-full")}
@@ -437,6 +444,11 @@ export const SparklesCore = React.memo(function SparklesCore(props) {
             detectRetina: true,
           }}
         />
+      ) : (
+        // Fallback content when particles don't load
+        <div className="h-full w-full flex items-center justify-center">
+          <div className="text-white/20 text-xs">✨</div>
+        </div>
       )}
     </motion.div>
   );

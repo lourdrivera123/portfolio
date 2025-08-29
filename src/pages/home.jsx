@@ -18,7 +18,7 @@ import image3 from '@/images/photos/image-3.webp'
 import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.png'
 import Techs from '@/components/techs/Techs';
-import { SparklesPreview } from "@/components/sparklesdemo";
+import ClientOnlySparkles from "@/components/ui/ClientOnlySparkles";
 import { Footer } from '@/components/Footer'
 import Reviews from '@/components/review/Reviews';
 import { HeroParallax } from '@/components/projects/hero-parallax'
@@ -308,7 +308,7 @@ export default function Home() {
       <Container className="mt-24 md:mt-28">
         <Techs />
       </Container>
-      <SparklesPreview />
+      <ClientOnlySparkles />
       <HeroParallax products={products} />
       <Reviews />
       <Container className="mt-24 md:mt-28">
