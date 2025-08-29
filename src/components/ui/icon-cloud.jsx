@@ -57,15 +57,43 @@ export const renderCustomIcon = (icon, theme) => {
 const IconCloud = React.memo(function IconCloud({ iconSlugs }) {
   const [data, setData] = useState(null);
   const [isMounted, setIsMounted] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const { theme } = useTheme();
 
   useEffect(() => {
     setIsMounted(true);
     let cancelled = false;
     
-    // Only fetch if iconSlugs is defined and not empty
-    if (iconSlugs && Array.isArray(iconSlugs) && iconSlugs.length > 0) {
-      fetchSimpleIcons({ slugs: iconSlugs }).then((result) => {
+    // Triple validation to prevent the slugs error
+    if (!iconSlugs) {
+      console.warn('IconCloud: iconSlugs is undefined');
+      return;
+    }
+    
+    if (!Array.isArray(iconSlugs)) {
+      console.warn('IconCloud: iconSlugs is not an array:', typeof iconSlugs);
+      return;
+    }
+    
+    if (iconSlugs.length === 0) {
+      console.warn('IconCloud: iconSlugs array is empty');
+      return;
+    }
+
+    // Create a safe options object
+    const safeOptions = {
+      slugs: iconSlugs
+    };
+
+    // Validate that the options object is properly formed
+    if (!safeOptions.slugs || !Array.isArray(safeOptions.slugs)) {
+      console.error('IconCloud: Failed to create safe options object');
+      setHasError(true);
+      return;
+    }
+
+    try {
+      fetchSimpleIcons(safeOptions).then((result) => {
         if (!cancelled) {
           setData(result);
         }
@@ -73,8 +101,14 @@ const IconCloud = React.memo(function IconCloud({ iconSlugs }) {
         console.error('Error fetching simple icons:', error);
         if (!cancelled) {
           setData(null);
+          setHasError(true);
         }
       });
+    } catch (syncError) {
+      console.error('Synchronous error in fetchSimpleIcons:', syncError);
+      if (!cancelled) {
+        setHasError(true);
+      }
     }
 
     return () => {
@@ -105,6 +139,48 @@ const IconCloud = React.memo(function IconCloud({ iconSlugs }) {
       >
         <div className="animate-pulse text-zinc-500 dark:text-zinc-400">
           Loading...
+        </div>
+      </div>
+    );
+  }
+
+  // Handle error state gracefully
+  if (hasError) {
+    return (
+      <div 
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+          height: '400px',
+          paddingTop: 40,
+        }}
+      >
+        <div className="text-zinc-500 dark:text-zinc-400 text-center">
+          <div className="mb-2">⚠️</div>
+          <div className="text-sm">Skills visualization temporarily unavailable</div>
+        </div>
+      </div>
+    );
+  }
+
+  // Don't render if no icons are loaded
+  if (!renderedIcons || renderedIcons.length === 0) {
+    return (
+      <div 
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+          height: '400px',
+          paddingTop: 40,
+        }}
+      >
+        <div className="text-zinc-500 dark:text-zinc-400 text-center">
+          <div className="mb-2">📦</div>
+          <div className="text-sm">Loading skills...</div>
         </div>
       </div>
     );

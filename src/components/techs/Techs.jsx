@@ -1,5 +1,6 @@
 import { slugs as importedSlugs, techs } from '@/constants/skills';
 import IconCloud from '../ui/icon-cloud';
+import ErrorBoundary from '../ui/ErrorBoundary';
 import TechTag from './TechTag';
 import { motion } from "framer-motion";
 
@@ -8,7 +9,19 @@ const fallbackSlugs = [
   'typescript', 'javascript', 'react', 'nodejs', 'nextjs'
 ];
 
-const slugs = importedSlugs || fallbackSlugs;
+// Robust slugs validation and assignment
+let slugs;
+try {
+  if (importedSlugs && Array.isArray(importedSlugs) && importedSlugs.length > 0) {
+    slugs = importedSlugs;
+  } else {
+    console.warn('Techs: Using fallback slugs, imported slugs invalid:', importedSlugs);
+    slugs = fallbackSlugs;
+  }
+} catch (error) {
+  console.error('Techs: Error importing slugs, using fallback:', error);
+  slugs = fallbackSlugs;
+}
 
 const Techs = () => {
   return (
@@ -37,7 +50,27 @@ const Techs = () => {
           </div>
 
           <div>
-            {slugs && <IconCloud iconSlugs={slugs} />}
+            <ErrorBoundary>
+              {slugs && Array.isArray(slugs) && slugs.length > 0 ? (
+                <IconCloud iconSlugs={slugs} />
+              ) : (
+                <div 
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: '100%',
+                    height: '400px',
+                    paddingTop: 40,
+                  }}
+                >
+                  <div className="text-zinc-500 dark:text-zinc-400 text-center">
+                    <div className="mb-2">🛠️</div>
+                    <div className="text-sm">Skills visualization loading...</div>
+                  </div>
+                </div>
+              )}
+            </ErrorBoundary>
           </div>
         </div>
       </div>
