@@ -19,7 +19,7 @@ import { motion, useAnimation } from "framer-motion";
  * @property {string} [particleColor]
  * @property {number} [particleDensity]
  */
-export const SparklesCore = React.memo((props) => {
+export const SparklesCore = React.memo(function SparklesCore(props) {
   const {
     id,
     className,

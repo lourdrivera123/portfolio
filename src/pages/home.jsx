@@ -279,7 +279,7 @@ export default function Home() {
               </span>
           </motion.h2>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I'm <strong>Zem</strong>, 10 years of experience in the industry. Frontend-focused software engineer with fullstack capabilities and extensive Progressive Web App (PWA) expertise.
+            I&apos;m <strong>Zem</strong>, 10 years of experience in the industry. Frontend-focused software engineer with fullstack capabilities and extensive Progressive Web App (PWA) expertise.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink

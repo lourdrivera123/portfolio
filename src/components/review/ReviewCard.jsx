@@ -3,13 +3,13 @@ import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { MagicCard } from '@/components/ui/magic-card';
 
-const ReviewCard = React.memo(({
+const ReviewCard = React.memo(function ReviewCard({
   img,
   name,
   username,
   body,
   bgGradientColor,
-}) => {
+}) {
   return (
     <MagicCard
       className="cursor-pointer border-none bg-background text-white"

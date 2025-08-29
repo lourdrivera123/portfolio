@@ -105,10 +105,10 @@ export const Header = () => {
   );
 };
 
-export const ProductCard = React.memo(({
+const ProductCard = React.memo(function ProductCard({
   product,
   translate,
-}) => {
+}) {
   return (
     <motion.div
       style={{
@@ -145,3 +145,5 @@ export const ProductCard = React.memo(({
     </motion.div>
   );
 });
+
+export { ProductCard };
