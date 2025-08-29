@@ -1,0 +1,58 @@
+export const reviews = [
+  {
+    name: 'Julia T.',
+    username: 'Product Owner',
+    body: "Zemiel is an exceptional software engineer whose innovative yet practical approach consistently meets business needs. He brings deep expertise in web applications, delivering responsive, maintainable, and scalable solutions while thriving in agile, cross-functional teams. ",
+    img: 'https://media.licdn.com/dms/image/v2/C4D03AQF49aw8vj6TXQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1652253928455?e=1739404800&v=beta&t=qKt4oj_gHgHjFsC2mxjkWrhhQa-Gc9Xi1SulMkOoPw4',
+    bgGradientColor: '#4E2C6C',
+  },
+  {
+    name: 'Julia T.',
+    username: 'Product Owner',
+    body: "As a Product Owner, I’ve seen firsthand his rare ability to connect empathetically and explain complex technical concepts clearly to non-technical stakeholders. His positive energy, growth mindset, and quick adaptability make him a pleasure to work with and an irreplaceable talent who strengthens any team he joins.",
+    img: 'https://media.licdn.com/dms/image/v2/C4D03AQF49aw8vj6TXQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1652253928455?e=1739404800&v=beta&t=qKt4oj_gHgHjFsC2mxjkWrhhQa-Gc9Xi1SulMkOoPw4',
+    bgGradientColor: '#4E2C6C',
+  },
+  {
+    name: 'Royce G.',
+    username: 'Software Engr.',
+    body: "Given Zem's innovative and practical approach, I strongly recommend him for any role that requires a blend of technical expertise and strong interpersonal skills. He excels at delivering responsive, maintainable, and scalable systems in an agile environment. ",
+    img: 'https://media.licdn.com/dms/image/v2/D4D03AQEF4oyucjfYxQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1730652820989?e=1739404800&v=beta&t=6qocNBgZVXSGYt8tc6XIM-YWlgYVK26s5s3MThLX86w',
+    bgGradientColor: '#9A1F28',
+  },
+  {
+    name: 'Royce G.',
+    username: 'Software Engr.',
+    body: "His rare ability to connect empathetically and clearly explain complex technical concepts to non-technical users makes him a truly irreplaceable talent who strengthens any team he joins.",
+    img: 'https://media.licdn.com/dms/image/v2/D4D03AQEF4oyucjfYxQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1730652820989?e=1739404800&v=beta&t=6qocNBgZVXSGYt8tc6XIM-YWlgYVK26s5s3MThLX86w',
+    bgGradientColor: '#9A1F28',
+  },
+  {
+    name: 'Brady Morgan',
+    username: 'CEO',
+    body: 'It has been a great experience working with Zem! I will defintely start looking for him to join my team when I start a new company.',
+    img: 'https://media.licdn.com/dms/image/v2/D4D35AQEIjL26KeYTKQ/profile-framedphoto-shrink_100_100/profile-framedphoto-shrink_100_100/0/1677088739853?e=1734602400&v=beta&t=3_k3X69LalVAdZCW1TSaIYnjxf_jBuHv4XH7rEymtC8',
+    bgGradientColor: '#2C6A2F',
+  },
+  {
+    name: 'Dexter B.',
+    username: 'Software Engr.',
+    body: "I’ve had the chance to work with Zem on a couple of projects, and he’s one of those teammates who make collaboration effortless. He stays up to date with the latest technologies, has a strong eye for best practices and performance, and consistently delivers high-quality work ahead of schedule.",
+    img: 'https://media.licdn.com/dms/image/v2/C4D03AQF49aw8vj6TXQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1652253928455?e=1739404800&v=beta&t=qKt4oj_gHgHjFsC2mxjkWrhhQa-Gc9Xi1SulMkOoPw4',
+    bgGradientColor: '#4E2C6C',
+  },
+  {
+    name: 'Dexter B.',
+    username: 'Software Engr.',
+    body: " What really sets him apart is his mindset—when others back away from challenges that seem impossible, Zem steps in and finds a way forward. He also shares his knowledge with new teammates, which lifts the whole team's performance. An excellent engineer and a great teammate.",
+    img: 'https://media.licdn.com/dms/image/v2/C4D03AQF49aw8vj6TXQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1652253928455?e=1739404800&v=beta&t=qKt4oj_gHgHjFsC2mxjkWrhhQa-Gc9Xi1SulMkOoPw4',
+    bgGradientColor: '#4E2C6C',
+  },
+  {
+    name: 'Mike M.',
+    username: 'CEO',
+    body: "Thank you for being a part of our team. Means a lot to us.",
+    img: '',
+    bgGradientColor: '#2C6A2F',
+  },
+];
