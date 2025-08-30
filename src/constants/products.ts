@@ -1,11 +1,11 @@
-import p1 from '@/images/projects/p1.png'
-import p2 from '@/images/projects/p2.png'
-import p3 from '@/images/projects/p3.png'
-import p4 from '@/images/projects/p4.png'
-import p5 from '@/images/projects/p5.png'
-import p6 from '@/images/projects/p6.png'
-import p7 from '@/images/projects/p7.png'
-import p8 from '@/images/projects/p8.png'
+import p1 from '@/images/projects/p1_optimized.webp'
+import p2 from '@/images/projects/p2_optimized.webp'
+import p3 from '@/images/projects/p3_optimized.webp'
+import p4 from '@/images/projects/p4_optimized.webp'
+import p5 from '@/images/projects/p5_optimized.webp'
+import p6 from '@/images/projects/p6_optimized.webp'
+import p7 from '@/images/projects/p7_optimized.webp'
+import p8 from '@/images/projects/p8_optimized.webp'
 
 export const products = [
   {

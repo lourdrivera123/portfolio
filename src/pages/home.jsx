@@ -15,7 +15,7 @@ import { FAQSection } from '@/components/faq-section'
 import image1 from '@/images/photos/image-1.png'
 import image2 from '@/images/photos/image-7.png'
 import image3 from '@/images/photos/image-3.webp'
-import image4 from '@/images/photos/image-4.jpg'
+import image4 from '@/images/portrait_optimized.webp'
 import image5 from '@/images/photos/image-5.png'
 import Techs from '@/components/techs/Techs';
 import ClientOnlySparkles from "@/components/ui/ClientOnlySparkles";
